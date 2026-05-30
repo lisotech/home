@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LISOTECH INNOVATIONS</title>
+<body style="background-image: url('bcg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <!-- your content here -->
+</body>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#020817;
+    color:white;
+    overflow-x:hidden;
+}
+
+:root{
+    --primary:#0066ff;
+    --card:#0b1220;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(2,8,23,0.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+/* Navigation */
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* Hamburger Menu */
+.mobile-menu{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.mobile-menu span{
+    width:30px;
+    height:3px;
+    background:white;
+    border-radius:5px;
+}
+
+/* Buttons */
+.btn{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.call-btn{
+    background:#0066ff;
+}
+
+.whatsapp{
+    background:#25D366;
+}
+
+.call-btn:hover,
+.whatsapp:hover{
+    transform:translateY(-2px);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 8% 50px;
+    text-align:center;
+    justify-content:center;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.service-card{
+    background:var(--card);
+    padding:25px;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-5px);
+}
+
+.service-card h3{
+    margin-bottom:10px;
+    color:#4da3ff;
+}
+
+.service-card p{
+    color:#cbd5e1;
+    margin-bottom:15px;
+}
+
+.button-group{
+    display:flex;
+    gap:10px;
+}
+
+.button-group a{
+    flex:1;
+    text-align:center;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.contact-card{
+    background:var(--card);
+    padding:25px;
+    border-radius:15px;
+}
+
+.contact-card h3{
+    margin-bottom:10px;
+    color:#4da3ff;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+/* Mobile */
+@media(max-width:900px){
+
+nav ul{
+    position:absolute;
+    top:80px;
+    right:-100%;
+    width:250px;
+    background:#020817;
+    flex-direction:column;
+    padding:20px;
+    transition:.4s;
+}
+
+nav ul.active{
+    right:0;
+}
+
+.mobile-menu{
+    display:flex;
+}
+
+.hero h1{
+    font-size:40px;
+}
+}
+</style>
+</head>
+<body>
+<body style="background-image:url('bcg.jpeg');background-size:cover;background-position:center;background-repeat:no-repeat;margin:0;height:100vh;">
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            LISOTECH <span>INNOVATIONS</span>
+        </div>
+
+        <nav>
+            <ul id="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Modern Business Solutions <span>For Zambia</span></h1>
+        <p>
+            LISOTECH INNOVATIONS offers professional business registration,
+            compliance services, tax returns, websites, company profiles
+            and online business solutions.
+        </p>
+    </div>
+</section>
+
+<section id="services">
+
+    <div class="section-title">
+        <h2>Our Services</h2>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <h3>Limited Company Registration</h3>
+            <p>Fast and professional company registration services.</p>
+            <div class="button-group">
+                <a href="tel:+260974101130" class="btn call-btn">Call</a>
+                <a href="https://wa.me/260974101130?text=I%20am%20interested%20in%20Limited%20Company%20Registration" class="btn whatsapp">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <h3>PACRA Registration</h3>
+            <p>Complete PACRA registration and documentation support.</p>
+            <div class="button-group">
+                <a href="tel:+260974101130" class="btn call-btn">Call</a>
+                <a href="https://wa.me/260974101130?text=I%20am%20interested%20in%20PACRA%20Registration" class="btn whatsapp">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <h3>ZRA Registration & Returns</h3>
+            <p>TOT and PAYE registration and return filing.</p>
+            <div class="button-group">
+                <a href="tel:+260974101130" class="btn call-btn">Call</a>
+                <a href="https://wa.me/260974101130?text=I%20am%20interested%20in%20ZRA%20Registration" class="btn whatsapp">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <h3>NAPSA Registration</h3>
+            <p>Professional NAPSA registration and returns services.</p>
+            <div class="button-group">
+                <a href="tel:+260974101130" class="btn call-btn">Call</a>
+                <a href="https://wa.me/260974101130?text=I%20am%20interested%20in%20NAPSA%20Registration" class="btn whatsapp">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <h3>Business Websites</h3>
+            <p>Modern responsive websites for businesses.</p>
+            <div class="button-group">
+                <a href="tel:+260974101130" class="btn call-btn">Call</a>
+                <a href="https://wa.me/260974101130?text=I%20am%20interested%20in%20Business%20Website%20Development" class="btn whatsapp">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <h3>Company Profiles & Emails</h3>
+            <p>Professional company profiles and email setup.</p>
+            <div class="button-group">
+                <a href="tel:+260974101130" class="btn call-btn">Call</a>
+                <a href="https://wa.me/260974101130?text=I%20am%20interested%20in%20Company%20Profiles%20and%20Emails" class="btn whatsapp">WhatsApp</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="section-title">
+        <h2>Contact Us</h2>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+            <h3>Phone</h3>
+            <p>+260 974 101 130</p>
+        </div>
+
+        <div class="contact-card">
+            <h3>Email</h3>
+            <p>lisotechinnovations@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+            <h3>Location</h3>
+            <p>Lusaka, Zambia</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 LISOTECH INNOVATIONS. All Rights Reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+<body style="background-image:url('bcg.jpeg');background-size:cover;background-position:center;background-repeat:no-repeat;margin:0;height:100vh;">
+</html>
