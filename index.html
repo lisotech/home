@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LISOTECH INNOVATIONS</title>
 
+<!-- Logo in Website Title Tab (Favicon) -->
 <link rel="icon" type="image/png" href="logo.png" />
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,10 +43,23 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-background:rgba(4,20,43,0.98);
+background:rgba(4,20,43,0.95);
 backdrop-filter:blur(10px);
 z-index:1000;
 border-bottom:1px solid rgba(255,255,255,.1);
+transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+header.menu-open {
+background: none !important;
+backdrop-filter: none !important;
+border-color: transparent !important;
+}
+
+header.menu-open .logo-container {
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
 }
 
 .navbar{
@@ -59,6 +73,7 @@ padding:15px 8%;
 display:flex;
 align-items:center;
 gap:12px;
+transition: opacity 0.3s ease;
 }
 
 .brand-logo{
@@ -81,26 +96,101 @@ font-size:12px;
 color:#00d2ff;
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:25px;
+/* Spring-Action Side Nav Menu - Background Color and Shadows Removed */
+nav ul {
+position: fixed;
+top: 0;
+right: -320px;
+width: 300px;
+height: 100vh;
+background: none !important; 
+backdrop-filter: none !important; 
+box-shadow: none !important; 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 35px;
+list-style: none;
+padding: 40px;
+z-index: 1001;
+transition: right 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+nav ul.active {
+right: 0;
 }
 
 nav ul li a{
 color:white;
 text-decoration:none;
+font-size: 24px; 
+font-weight: 600;
+letter-spacing: 1px;
 transition:.3s;
+display: block;
+padding: 10px 20px;
+text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
 }
 
 nav ul li a:hover{
 color:#00d2ff;
+transform: scale(1.1);
 }
 
-.mobile-menu{
-display:none;
-font-size:28px;
-cursor:pointer;
+.mobile-menu {
+display: block;
+font-size: 26px;
+cursor: pointer;
+color: white;
+transition: transform 0.3s ease, opacity 0.2s ease;
+z-index: 1002;
+}
+
+.mobile-menu.hidden {
+opacity: 0;
+pointer-events: none;
+}
+
+.mobile-menu:hover {
+color: #00d2ff;
+transform: scale(1.1);
+}
+
+.close-menu-btn {
+position: absolute;
+top: 25px;
+right: 30px;
+font-size: 34px;
+cursor: pointer;
+color: #ffffff;
+transition: color 0.2s, transform 0.2s;
+text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.close-menu-btn:hover {
+color: #ff4a4a;
+transform: scale(1.1);
+}
+
+/* Enhanced blur layer to make pure text links easy to read */
+.nav-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(4, 20, 43, 0.75); 
+backdrop-filter: blur(8px);
+z-index: 1000;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.4s ease;
+}
+
+.nav-overlay.active {
+opacity: 1;
+pointer-events: auto;
 }
 
 .hero{
@@ -254,7 +344,7 @@ box-shadow:0 5px 15px rgba(0,0,0,.4);
 z-index:999;
 }
 
-/* Reduced Height Blue Diamond Footer Layout */
+/* Footer Layout config */
 footer {
 background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
 color: #04142b;
@@ -266,11 +356,12 @@ border-top: 2px solid #00d2ff;
 }
 
 footer p {
-font-size: 13px;
-font-weight: 600;
+font-size: 14px;
+font-weight: 700;
 position: relative;
 z-index: 2;
-margin-bottom: 2px;
+margin-bottom: 5px; /* Clean gap above the scroll text */
+letter-spacing: 0.5px;
 }
 
 footer marquee {
@@ -305,31 +396,9 @@ opacity: 0;
 }
 
 @media(max-width:900px){
-
-nav ul{
-position:absolute;
-top:80px;
-left:-100%;
-width:100%;
-background:#04142b;
-flex-direction:column;
-padding:20px;
-text-align:center;
-transition:.4s;
-}
-
-nav ul.active{
-left:0;
-}
-
-.mobile-menu{
-display:block;
-}
-
 .hero h1{
 font-size:40px;
 }
-
 .hero h3{
 font-size:28px;
 }
@@ -340,7 +409,9 @@ font-size:28px;
 
 <body>
 
-<header>
+<div class="nav-overlay" id="blurOverlay" onclick="toggleMenu()"></div>
+
+<header id="siteHeader">
 
 <div class="navbar">
 
@@ -354,13 +425,14 @@ LISOTECH
 
 <nav>
 <ul id="menu">
+<div class="close-menu-btn" onclick="toggleMenu()">&times;</div>
 <li><a href="#home" onclick="toggleMenu()">Home</a></li>
 <li><a href="#services" onclick="toggleMenu()">Services</a></li>
 <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
 </ul>
 </nav>
 
-<div class="mobile-menu" onclick="toggleMenu()">
+<div class="mobile-menu" id="hamburgerBtn" onclick="toggleMenu()">
 ☰
 </div>
 
@@ -484,13 +556,8 @@ style="background:#34A853;">
 </section>
 
 <footer id="animated-footer">
-
-<p>LISOTECH || All Rights Reserved.</p>
-
-<marquee>
-Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260 974 101 130
-</marquee>
-
+<p>LISOTECH || All Rights Reserved</p>
+<marquee>Designed by LISOTECH INNOVATIONS | Call or WhatsApp: +260 974 101 130</marquee>
 </footer>
 
 <a href="https://wa.me/260974101130"
@@ -503,6 +570,9 @@ class="floating-whatsapp">
 
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
+document.getElementById("blurOverlay").classList.toggle("active");
+document.getElementById("hamburgerBtn").classList.toggle("hidden");
+document.getElementById("siteHeader").classList.toggle("menu-open");
 }
 
 function createFlower() {
