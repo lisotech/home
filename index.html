@@ -252,11 +252,11 @@ box-shadow:0 5px 15px rgba(0,0,0,.4);
 z-index:999;
 }
 
-/* Updated Blue Diamond Footer with Falling Flower Container Space */
+/* Reduced Height Blue Diamond Footer Layout */
 footer {
 background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
 color: #04142b;
-padding: 35px 20px;
+padding: 15px 20px; /* Reduced vertical padding for lower height */
 text-align: center;
 position: relative;
 overflow: hidden;
@@ -264,18 +264,20 @@ border-top: 2px solid #00d2ff;
 }
 
 footer p {
-font-size: 14px;
+font-size: 13px;
 font-weight: 600;
 position: relative;
 z-index: 2;
-margin-bottom: 5px;
+margin-bottom: 2px;
 }
 
 footer marquee {
+font-size: 12px;
 font-weight: 500;
 position: relative;
 z-index: 2;
 color: #04142b;
+display: block;
 }
 
 /* Falling Flowers Styling */
@@ -284,7 +286,7 @@ position: absolute;
 top: -20px;
 pointer-events: none;
 z-index: 1;
-font-size: 16px;
+font-size: 14px;
 user-select: none;
 animation: fall linear forwards;
 }
@@ -295,7 +297,7 @@ transform: translateY(0) rotate(0deg);
 opacity: 1;
 }
 100% {
-transform: translateY(120px) rotate(360deg);
+transform: translateY(90px) rotate(360deg); /* Shortened tracking range to fit lower height */
 opacity: 0;
 }
 }
@@ -509,35 +511,29 @@ function createFlower() {
   const flower = document.createElement('div');
   flower.classList.add('falling-flower');
   
-  // Array of floral characters to pick randomly
   const flowerTypes = ['✿', '❀', '❁', '💮'];
   flower.innerText = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
   
-  // Randomly select orange or red shades
   const colors = ['#FF4500', '#FF5733', '#D32F2F', '#FF3333', '#E64A19'];
   flower.style.color = colors[Math.floor(Math.random() * colors.length)];
   
-  // Random horizontal placement across footer
   flower.style.left = Math.random() * 100 + '%';
   
-  // Random sizing adjustments
-  const size = Math.random() * 12 + 12; // Sizes between 12px and 24px
+  const size = Math.random() * 8 + 10; // Slightly smaller flower size bounds to match short layout space
   flower.style.fontSize = size + 'px';
   
-  // Random duration for natural variations
-  const duration = Math.random() * 2 + 2; // Falls between 2 to 4 seconds
+  const duration = Math.random() * 1.5 + 1.5; // Adjusted falling speed configuration
   flower.style.animationDuration = duration + 's';
   
   footer.appendChild(flower);
   
-  // Safely clean up flower elements after animation finishes
   setTimeout(() => {
     flower.remove();
   }, duration * 1000);
 }
 
-// Controls how fast new flowers spawn (every 400 milliseconds)
-setInterval(createFlower, 400);
+// Controls how fast new flowers spawn (every 500 milliseconds)
+setInterval(createFlower, 500);
 
 </script>
 
