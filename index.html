@@ -273,6 +273,9 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, .05);
       transition: .3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .service-card:hover {
@@ -283,6 +286,60 @@
     .service-card h3 {
       margin-bottom: 15px;
       color: #00d2ff;
+    }
+
+    /* Styles for New Details and Download Buttons */
+    .details-btn {
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid #00d2ff;
+      color: #00d2ff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 15px;
+      transition: 0.3s;
+      width: 100%;
+      text-align: center;
+    }
+
+    .details-btn:hover {
+      background: #00d2ff;
+      color: #04142b;
+    }
+
+    .details-content {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .details-content p {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      background: #1ebd54;
+      transform: translateY(-2px);
     }
 
     .contact-box {
@@ -358,7 +415,6 @@
       position: relative;
       z-index: 2;
       margin-bottom: 5px;
-      /* Clean gap above the scroll text */
       letter-spacing: 0.5px;
     }
 
@@ -534,28 +590,64 @@
   <section id="computer-software" style="padding-top: 30px;">
     <div class="section-title">
       <h2>Computer Software Services</h2>
-      <p>Professional Operating System & official Microsoft Office with (multi-editions)</p>
+      <p>Professional Operating System & Office Productivity Deployments</p>
     </div>
 
     <div class="services-grid">
       <div class="service-card">
-        <h3>OS Installation</h3>
-        <p>Clean and secure installations of original Computer Operating Systems (Windows/macOS) optimized for your hardware.</p>
+        <div>
+          <h3>Computer OS Installation</h3>
+          <p>Clean setup and configurations of genuine operating systems optimized for your PC.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('os-install-details')">Details</button>
+        <div class="details-content" id="os-install-details">
+          <p>Get a clean, completely secure installation of Windows or macOS, complete with necessary system drivers.</p>
+          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download File
+          </a>
+        </div>
       </div>
 
       <div class="service-card">
-        <h3>OS Activation</h3>
-        <p>Genuine computer operating system activations ensuring you receive critical security patches and system updates.</p>
+        <div>
+          <h3>Computer OS Activation</h3>
+          <p>Permanent digital licenses and activations for computer operating systems.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('os-activation-details')">Details</button>
+        <div class="details-content" id="os-activation-details">
+          <p>Unlock the full features of your OS securely to access continuous Windows security updates and updates.</p>
+          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download File
+          </a>
+        </div>
       </div>
 
       <div class="service-card">
-        <h3>Microsoft Office Installation</h3>
-        <p>Complete deployment of Microsoft Office suites including Word, Excel, PowerPoint, and Outlook.</p>
+        <div>
+          <h3>Microsoft Office Installation</h3>
+          <p>Professional setup of standard productivity applications like Word, Excel, and PPT.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('office-install-details')">Details</button>
+        <div class="details-content" id="office-install-details">
+          <p>Complete deployment of modern Microsoft Office application suites suited for business setups or student use.</p>
+          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download File
+          </a>
+        </div>
       </div>
 
       <div class="service-card">
-        <h3>Microsoft Office Activation</h3>
-        <p>Official product key activations for Microsoft Office applications to unlock full productivity features securely.</p>
+        <div>
+          <h3>Microsoft Office Activation</h3>
+          <p>Genuine software validation to clear "Product Expired" errors permanently.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('office-activation-details')">Details</button>
+        <div class="details-content" id="office-activation-details">
+          <p>Secure product activation that ensures your Microsoft Office suite works smoothly without sudden interruptions.</p>
+          <a href="https://www.mediafire.com/folder/j35t8sw41mwcj/SAMSON+Softies" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download File
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -606,6 +698,16 @@
       document.getElementById("blurOverlay").classList.toggle("active");
       document.getElementById("hamburgerBtn").classList.toggle("hidden");
       document.getElementById("siteHeader").classList.toggle("menu-open");
+    }
+
+    // Function to handle showing/hiding the details section
+    function toggleDetails(elementId) {
+      const detailsSection = document.getElementById(elementId);
+      if (detailsSection.style.display === "block") {
+        detailsSection.style.display = "none";
+      } else {
+        detailsSection.style.display = "block";
+      }
     }
 
     function createFlower() {
