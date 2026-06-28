@@ -96,7 +96,7 @@
       color: #00d2ff;
     }
 
-    /* Spring-Action Side Nav Menu - Background Color and Shadows Removed */
+    /* Spring-Action Side Nav Menu */
     nav ul {
       position: fixed;
       top: 0;
@@ -173,7 +173,6 @@
       transform: scale(1.1);
     }
 
-    /* Enhanced blur layer to make pure text links easy to read */
     .nav-overlay {
       position: fixed;
       top: 0;
@@ -289,7 +288,6 @@
       color: #00d2ff;
     }
 
-    /* Styles for New Details and Download Buttons */
     .details-btn {
       background: rgba(0, 210, 255, 0.1);
       border: 1px solid #00d2ff;
@@ -399,7 +397,6 @@
       z-index: 999;
     }
 
-    /* Footer Layout config */
     footer {
       background: linear-gradient(135deg, #b9f2ff, #e0f7fc);
       color: #04142b;
@@ -428,7 +425,6 @@
       display: block;
     }
 
-    /* Falling Flowers Styling */
     .falling-flower {
       position: absolute;
       top: -20px;
@@ -468,9 +464,7 @@
   <div class="nav-overlay" id="blurOverlay" onclick="toggleMenu()"></div>
 
   <header id="siteHeader">
-
     <div class="navbar">
-
       <div class="logo-container">
         <img src="logo.png" alt="Logo" class="brand-logo">
         <div class="logo">
@@ -492,38 +486,28 @@
       <div class="mobile-menu" id="hamburgerBtn" onclick="toggleMenu()">
         ☰
       </div>
-
     </div>
-
   </header>
 
   <section class="hero" id="home">
-
     <div class="hero-content">
-
       <h3>Modern Business Solutions For <span>Zambia</span></h3>
-
       <p>
         LISOTECH INNOVATIONS offers professional business registration,
         tax returns, compliance services, websites, branding,
         company profiles and digital solutions.
       </p>
-
       <a href="Lisotech_Innovations_Price_List.pdf" target="_blank" class="btn">Our Price List</a>
-
     </div>
-
   </section>
 
   <section id="services">
-
     <div class="section-title">
       <h2>Our Services</h2>
       <p>Professional Registration and Compliance Solutions</p>
     </div>
 
     <div class="services-grid">
-
       <div class="service-card">
         <h3>Limited Company Registration</h3>
         <p>Fast and professional company registration services.</p>
@@ -583,12 +567,10 @@
         <p>Web management</p>
         <p>Web Maintanance</p>
       </div>
-
     </div>
-
   </section>
 
-  <!-- Computer Software Sub-Section with Expandable Details and Download Buttons -->
+  <!-- Computer Software Sub-Section -->
   <section id="computer-software" style="padding-top: 30px;">
     <div class="section-title">
       <h2>Computer Software Services</h2>
@@ -671,7 +653,7 @@
         </div>
       </div>
 
-      <!-- Card 6 (New WinRAR Service) -->
+      <!-- Card 6 -->
       <div class="service-card">
         <div>
           <h3>WinRAR File Archiver</h3>
@@ -685,38 +667,74 @@
           </a>
         </div>
       </div>
+
+      <!-- Card 7 -->
+      <div class="service-card">
+        <div>
+          <h3>Windows 11 Assistant</h3>
+          <p>Official upgrade tool to safely transition your eligible PC directly to Windows 11.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('win11-assistant-details')">Details</button>
+        <div class="details-content" id="win11-assistant-details">
+          <p>Easily prepare and upgrade your system configuration to the latest Windows 11 platform safely without losing your personal files.</p>
+          <a href="https://www.mediafire.com/file_premium/fqgp5jzeswr2b15/Windows11InstallationAssistant.exe/file" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download Assistant
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="service-card">
+        <div>
+          <h3>PC Health Check</h3>
+          <p>Official diagnostic tool to evaluate your computer's eligibility, performance, and health status.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('pc-health-check-details')">Details</button>
+        <div class="details-content" id="pc-health-check-details">
+          <p>Quickly audit your system specifications to see if your hardware meets Windows operational criteria and troubleshoot performance bottlenecks.</p>
+          <a href="https://www.mediafire.com/file_premium/y0jsb0cfbdw3kop/WindowsPCHealthCheckSetup.msi/file" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download Health Check
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 9 (New Windows 11 OS Downloads Service) -->
+      <div class="service-card">
+        <div>
+          <h3>Windows 11 OS ISOs</h3>
+          <p>Access complete, fully functional Windows 11 Operating System ISO image versions and builds.</p>
+        </div>
+        <button class="details-btn" onclick="toggleDetails('win11-iso-details')">Details</button>
+        <div class="details-content" id="win11-iso-details">
+          <p>Explore a collection of verified Windows 11 installation builds, pre-activated options, and ISO files clean for system architectures.</p>
+          <a href="https://getintopc.com/softwares/operating-systems/windows-11-april-2023-free-download-2971397/" target="_blank" class="download-btn">
+            <i class="fas fa-download"></i> Download Windows 11
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="contact">
-
     <div class="section-title">
       <h2>Contact Us</h2>
       <p>Connect With Us</p>
     </div>
 
     <div class="contact-box">
-
       <h3>Follow & Contact</h3>
-
       <div class="contact-buttons-container">
-
         <a href="https://wa.me/260974101130" target="_blank" class="icon-only-btn" style="background:#25D366;">
           <i class="fab fa-whatsapp"></i>
         </a>
-
         <a href="https://www.facebook.com/lisotechinnovations" target="_blank" class="icon-only-btn" style="background:#1877F2;">
           <i class="fab fa-facebook-f"></i>
         </a>
-
         <a href="tel:+260974101130" class="icon-only-btn" style="background:#34A853;">
           <i class="fas fa-phone-alt"></i>
         </a>
-
       </div>
-
     </div>
-
   </section>
 
   <footer id="animated-footer">
